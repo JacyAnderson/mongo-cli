@@ -29,22 +29,31 @@ mongo.connect(url, function(err, db){
   // });
 
   // EDIT RESTAURANT
-  var editRestaurant = prompt("Enter the name of the restaurant you would like to edit:");
-  var editRestaurantName = prompt("Enter name would you like to change it to?:");
-  var editRestStreet = prompt("Enter updated restaurant street:");
-  var editRestZip = prompt("Enter updated restaurant zipcode:");
-  var editRestYelp = prompt("Enter updated yelp url:");
-    collection.update(
-    	{ name: editRestaurant },
-    	{
-    	  name: editRestaurantName,
-    	  address: {
-    	  	street: editRestStreet,
-    	  	zipcode: editRestZip,
-    	  },
-    	  yelp: editRestZip
-    	}
-    );
-    console.log(editRestaurant);
+  // var editRestaurant = prompt("Enter the name of the restaurant you would like to edit:");
+  // var editRestaurantName = prompt("Enter name would you like to change it to?:");
+  // var editRestStreet = prompt("Enter updated restaurant street:");
+  // var editRestZip = prompt("Enter updated restaurant zipcode:");
+  // var editRestYelp = prompt("Enter updated yelp url:");
+  //   collection.update(
+  //   	{ name: editRestaurant },
+  //   	{
+  //   	  name: editRestaurantName,
+  //   	  address: {
+  //   	  	street: editRestStreet,
+  //   	  	zipcode: editRestZip,
+  //   	  },
+  //   	  yelp: editRestZip
+  //   	}
+  //   );
+  //   console.log(editRestaurant);
+
+  // DELETE RESTAURANT
+  var deleteRestaurant = prompt('Enter the restaurant you would you like to remove:');
+    collection.remove(
+      {name: deleteRestaurant},
+      {
+      	justOne: true
+      }
+    	);
 });
 
